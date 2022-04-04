@@ -1,11 +1,6 @@
 # Data Test - Starter Project
 
 ### Prerequisites
-#### Java JDK 8
-
-Go to https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-and under the section "Java SE Development Kit 8u191" (the final digits may vary at the time you're reading this)
-click the `Accept License Agreement` radio button and download the version appropriate to your operating system.
 
 #### Python 3.6.* or later.
 
@@ -17,9 +12,9 @@ Check you have python3 installed:
 python3 --version
 ```
 
-#### Preferably an IDE such as Pycharm Community Edition
+#### Preferably an IDE such as VSCode
 
-https://www.jetbrains.com/pycharm/download/
+https://code.visualstudio.com/Download
 
 
 ### Dependencies and data
