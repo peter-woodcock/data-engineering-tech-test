@@ -2,14 +2,14 @@
 
 ### Prerequisites
 
-#### Python 3.6.* or later.
+#### Python (3.8.* or later)
 
-See installation instructions at: https://www.python.org/downloads/
+You can install python either [from source](https://www.python.org/downloads/) or [with pyenv](https://github.com/pyenv/pyenv).
 
-Check you have python3 installed:
+Check you have python installed:
 
 ```bash
-python3 --version
+python --version
 ```
 
 #### Preferably an IDE such as VSCode
@@ -24,19 +24,19 @@ https://code.visualstudio.com/Download
 Ensure your pip (package manager) is up to date:
 
 ```bash
-pip3 install --upgrade pip
+pip install --upgrade pip
 ```
 
 To check your pip version run:
 
 ```bash
-pip3 --version
+pip --version
 ```
 
 Create the virtual environment in the root of the cloned project:
 
 ```bash
-python3 -m venv .venv
+python -m venv .venv
 ```
 
 #### Activating the newly created virtual environment
@@ -52,21 +52,19 @@ source ./.venv/bin/activate
 This will install some of the packages you might find useful:
 
 ```bash
-pip3 install -r ./requirements.txt
+pip install -r requirements.txt
 ```
 
 #### Running tests to ensure everything is working correctly
 
 ```bash
-pytest ./tests
+pytest
 ```
 
 #### Generating the data
 
 A data generator is included as part of the project in `./input_data_generator/main_data_generator.py`
 This allows you to generate a configurable number of months of data.
-Although the technical test specification mentions 6 months of data, it's best to generate
-less than that initially to help improve the debugging process.
 
 To run the data generator use:
 
