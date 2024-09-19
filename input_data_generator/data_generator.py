@@ -28,24 +28,24 @@ def generate_advisors(output_location_root, number_of_advisors, return_data=True
     return advisors if return_data else None
 
 
-def generate_products(output_location_root, products_to_generate):
-    product_count_digits = int(math.log10(len(sum(products_to_generate.values(), []))) + 1)
+def generate_commodities(output_location_root, commodities_to_generate):
+    commodities_count_digits = int(math.log10(len(sum(commodities_to_generate.values(), []))) + 1)
 
-    product_id_lookup = {k: {} for k, v in products_to_generate.items()}
-    with open(f'{output_location_root}/products.csv', mode='w') as products_file:
-        csv_writer = csv.writer(products_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        csv_writer.writerow(["product_id", "product_description", "product_category"])
-        item_index = 1
-        for category in products_to_generate:
-            for item in products_to_generate[category]:
-                product_id = f"P{str(item_index).zfill(product_count_digits)}"
-                csv_writer.writerow([product_id, item, category])
-                product_id_lookup[category][item] = product_id
-                item_index += 1
-    return product_id_lookup
+    commodities_id_lookup = {k: {} for k, v in commodities_to_generate.items()}
+    with open(f'{output_location_root}/commodities.csv', mode='w') as commodities_file:
+        csv_writer = csv.writer(commodities_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csv_writer.writerow(["commodity_code", "commodity_description", "commodity_category"])
+        index = 1
+        for category in commodities_to_generate:
+            for commodity in commodities_to_generate[category]:
+                commodity_code = f"C{str(index).zfill(commodities_count_digits)}"
+                csv_writer.writerow([commodity_code, commodity, category])
+                commodities_id_lookup[category][commodity] = commodity
+                index += 1
+    return commodities_id_lookup
 
 
-def generate_transactions(output_location_root, customers, products, product_id_lookup, products_cats_frequency,
+def generate_transactions(output_location_root, customers, commodoties, commodities_id_lookup, products_cats_frequency,
                           start_datetime, end_datetime):
     open_files = open_transaction_sinks(output_location_root, start_datetime, end_datetime)
     product_cats_count = len(products.keys())
