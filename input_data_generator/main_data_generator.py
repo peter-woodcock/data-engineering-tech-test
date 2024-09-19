@@ -4,7 +4,7 @@ import numpy as np
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from data_generator import generate_advisors, generate_commodities, generate_transactions
+from data_generator import generate_advisors, generate_commodities, generate_export_wins
 
 if __name__ == "__main__":
     np.random.seed(seed=42)
@@ -29,6 +29,6 @@ if __name__ == "__main__":
     delta = relativedelta(months=3)
     start_date = end_date - delta
 
-    generate_transactions(output_location, gen_advisors, commodities_data,
+    generate_export_wins(output_location, gen_advisors, commodities_data,
                           commodity_id_lookup, commodities_cats_frequency,
                           start_date, end_date)
