@@ -4,7 +4,7 @@ import numpy as np
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from data_generator import generate_customers, generate_products, generate_transactions
+from data_generator import generate_advisors, generate_products, generate_transactions
 
 if __name__ == "__main__":
     np.random.seed(seed=42)
@@ -46,13 +46,13 @@ if __name__ == "__main__":
     output_location = f"./input_data/{gen_id}"
     os.makedirs(output_location, exist_ok=True)
 
-    gen_customers = generate_customers(output_location, 137)
+    gen_advisors = generate_advisors(output_location, 137)
     product_id_lookup = generate_products(output_location, products_data)
 
     end_date = datetime.today()
     delta = relativedelta(months=3)
     start_date = end_date - delta
 
-    generate_transactions(output_location, gen_customers, products_data,
+    generate_transactions(output_location, gen_advisors, products_data,
                           product_id_lookup, products_cats_frequency,
                           start_date, end_date)

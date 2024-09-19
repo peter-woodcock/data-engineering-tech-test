@@ -8,24 +8,24 @@ from datetime import timedelta
 import numpy as np
 
 
-class Customer(object):
-    def __init__(self, customer_id, loyalty_score):
-        self.customer_id = customer_id
-        self.value_score = loyalty_score
+class TradeAdvisor(object):
+    def __init__(self, trade_advisor_id, trade_advisor_job_grade):
+        self.trade_advisor_id = trade_advisor_id
+        self.trade_advisor_grade = trade_advisor_job_grade
 
 
-def generate_customers(output_location_root, number_of_customers, return_data=True):
-    customers = []
-    with open(f'{output_location_root}/customers.csv', mode='w') as customers_file:
-        csv_writer = csv.writer(customers_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        csv_writer.writerow(["customer_id", "loyalty_score"])
-        for cid in range(1, number_of_customers + 1):
-            score = np.random.randint(low=1, high=11)
-            customer_id = f"C{cid}"
-            csv_writer.writerow([customer_id, score])
+def generate_advisors(output_location_root, number_of_advisors, return_data=True):
+    advisors = []
+    with open(f'{output_location_root}/advisors.csv', mode='w') as advisors_file:
+        csv_writer = csv.writer(advisors_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csv_writer.writerow(["advisor_id", "job_grade"])
+        for cid in range(1, number_of_advisors + 1):
+            advisor_id = f"TA{cid}"
+            grade = random.choice(["G6","G7","SEO","HEO"])
+            csv_writer.writerow([advisor_id, grade])
             if return_data:
-                customers.append(Customer(customer_id, score))
-    return customers if return_data else None
+                advisors.append(TradeAdvisor(advisor_id, grade))
+    return advisors if return_data else None
 
 
 def generate_products(output_location_root, products_to_generate):
