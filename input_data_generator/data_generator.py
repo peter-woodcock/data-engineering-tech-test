@@ -40,8 +40,9 @@ def generate_commodities(output_location_root, commodities_to_generate):
             for commodity in commodities_to_generate[category]:
                 commodity_code = f"C{str(index).zfill(commodities_count_digits)}"
                 csv_writer.writerow([commodity_code, commodity, category])
-                commodities_id_lookup[category][commodity] = commodity
+                commodities_id_lookup[category][commodity] = commodity_code
                 index += 1
+    print(commodities_id_lookup)
     return commodities_id_lookup
 
 
